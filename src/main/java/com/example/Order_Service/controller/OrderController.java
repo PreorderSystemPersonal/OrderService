@@ -24,16 +24,18 @@ public class OrderController {
 
 
     //주문 조회하기
-    @GetMapping("/order/{id}")
-    public ResponseEntity<OrderResponseDTO> getOrder(@PathVariable Long orderId){
-        OrderResponseDTO response = orderService.getOrder(orderId);
-        return ResponseEntity.ok().body(response);
+    @GetMapping("/order/{orderId}")
+    public OrderResponseDTO getOrder(@PathVariable(name="orderId") Long orderId){
+        System.out.println(orderId);
+        return orderService.getOrder(orderId);
+//        System.out.println(response);
+//        return ResponseEntity.ok().body(response);
     }
 
 
     //주문 취소하기
     @DeleteMapping("/order/{id}")
-    public ResponseEntity<Void> cancel(@PathVariable Long orderId){
+    public ResponseEntity<Void> cancel(@PathVariable(name="id") Long orderId){
         orderService.cancel(orderId);
         return ResponseEntity.ok().build();
     }
