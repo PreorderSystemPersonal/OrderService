@@ -13,10 +13,6 @@ import org.springframework.web.bind.annotation.*;
 public class InternalOrderController {
     private final OrderService orderService;
 
-    @GetMapping
-    public String success(){
-        return "success";
-    }
     //결제 실패로 인한 주문 취소 요청
     @PostMapping("/cancel")
     public ResponseEntity<Void> increase(@RequestParam("id") Long orderId){

@@ -28,8 +28,6 @@ public class OrderController {
     public OrderResponseDTO getOrder(@PathVariable(name="orderId") Long orderId){
         System.out.println(orderId);
         return orderService.getOrder(orderId);
-//        System.out.println(response);
-//        return ResponseEntity.ok().body(response);
     }
 
 
